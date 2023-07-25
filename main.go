@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/f0rSaaaa/JWTAuthenticationGO/controllers"
 	"github.com/f0rSaaaa/JWTAuthenticationGO/initializers"
@@ -22,6 +23,7 @@ func main() {
 	r.POST("/signup", controllers.Signup)
 	r.POST("/login", controllers.Login)
 	r.GET("/validate", middleware.RequireAuth, controllers.Validate)
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+
+	log.Fatal(r.Run(), nil) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 
 }
